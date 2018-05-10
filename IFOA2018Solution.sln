@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{B9E9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Segreteria.Data", "Segreteria.Data\Segreteria.Data.csproj", "{9A8C2D85-8ED9-4D04-BECA-CB0B637EADA4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQLScripts", "SQLScripts", "{59270171-DDE1-45F3-8743-BC4EBC3AB74A}"
+	ProjectSection(SolutionItems) = preProject
+		Segreteria.sql = Segreteria.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
