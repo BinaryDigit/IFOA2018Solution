@@ -52,6 +52,30 @@
     <Compile Include="frmAlunni.Designer.cs">
       <DependentUpon>frmAlunni.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCorsi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCorsi.Designer.cs">
+      <DependentUpon>frmCorsi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEsami.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEsami.Designer.cs">
+      <DependentUpon>frmEsami.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEsamiSostenuti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEsamiSostenuti.Designer.cs">
+      <DependentUpon>frmEsamiSostenuti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNuovoEsameSostenuto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuovoEsameSostenuto.Designer.cs">
+      <DependentUpon>frmNuovoEsameSostenuto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSegreteria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +86,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAlunni.resx">
       <DependentUpon>frmAlunni.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCorsi.resx">
+      <DependentUpon>frmCorsi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEsami.resx">
+      <DependentUpon>frmEsami.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEsamiSostenuti.resx">
+      <DependentUpon>frmEsamiSostenuti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuovoEsameSostenuto.resx">
+      <DependentUpon>frmNuovoEsameSostenuto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSegreteria.resx">
       <DependentUpon>frmSegreteria.cs</DependentUpon>
@@ -76,6 +112,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="Properties\DataSources\Segreteria.Data.dsSegreteria+ALUNNIDataTable.datasource" />
+    <None Include="Properties\DataSources\Segreteria.Data.dsSegreteria+ESAMIDataTable.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

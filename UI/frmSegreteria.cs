@@ -29,5 +29,21 @@ namespace UI
             Alunni.Show();
 
         }
+
+        private void frmSegreteria_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void esamiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEsami frm_esami = new frmEsami() { MdiParent = this };
+            frm_esami.Show();
+        }
+
+        private void esamiToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmEsamiSostenuti frm_EsamiSostenuti = new UI.frmEsamiSostenuti() { MdiParent = this };
+            frm_EsamiSostenuti.Show();
+        }
     }
 }

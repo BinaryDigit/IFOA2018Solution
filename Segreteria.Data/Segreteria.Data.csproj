@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dsSegreteria.cs">
+      <DependentUpon>dsSegreteria.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsSegreteria.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

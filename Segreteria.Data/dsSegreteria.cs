@@ -1,0 +1,3 @@
+﻿namespace Segreteria.Data
+{
+}

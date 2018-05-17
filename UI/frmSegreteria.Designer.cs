@@ -35,6 +35,7 @@
             this.corsiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.esciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.esamiToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,11 +59,13 @@
             this.toolStripMenuItem1,
             this.esciToolStripMenuItem});
             this.anagraficheToolStripMenuItem.Name = "anagraficheToolStripMenuItem";
-            this.anagraficheToolStripMenuItem.Size = new System.Drawing.Size(187, 45);
+            this.anagraficheToolStripMenuItem.Size = new System.Drawing.Size(187, 48);
             this.anagraficheToolStripMenuItem.Text = "Anagrafiche";
             // 
             // alunniToolStripMenuItem
             // 
+            this.alunniToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.esamiToolStripMenuItem1});
             this.alunniToolStripMenuItem.Name = "alunniToolStripMenuItem";
             this.alunniToolStripMenuItem.Size = new System.Drawing.Size(326, 46);
             this.alunniToolStripMenuItem.Text = "Alunni";
@@ -73,6 +76,7 @@
             this.esamiToolStripMenuItem.Name = "esamiToolStripMenuItem";
             this.esamiToolStripMenuItem.Size = new System.Drawing.Size(326, 46);
             this.esamiToolStripMenuItem.Text = "Esami";
+            this.esamiToolStripMenuItem.Click += new System.EventHandler(this.esamiToolStripMenuItem_Click);
             // 
             // corsiToolStripMenuItem
             // 
@@ -92,16 +96,26 @@
             this.esciToolStripMenuItem.Text = "Esci";
             this.esciToolStripMenuItem.Click += new System.EventHandler(this.esciToolStripMenuItem_Click);
             // 
+            // esamiToolStripMenuItem1
+            // 
+            this.esamiToolStripMenuItem1.Name = "esamiToolStripMenuItem1";
+            this.esamiToolStripMenuItem1.Size = new System.Drawing.Size(326, 46);
+            this.esamiToolStripMenuItem1.Text = "Esami";
+            this.esamiToolStripMenuItem1.Click += new System.EventHandler(this.esamiToolStripMenuItem1_Click);
+            // 
             // frmSegreteria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(2126, 958);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmSegreteria";
             this.Text = "Segreteria Studenti";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmSegreteria_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -118,6 +132,7 @@
         private System.Windows.Forms.ToolStripMenuItem corsiToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem esciToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem esamiToolStripMenuItem1;
     }
 }
 

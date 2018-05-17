@@ -32,6 +32,10 @@ namespace Segreteria.Data {
         
         private ESAMIDataTable tableESAMI;
         
+        private global::System.Data.DataRelation relationFK_ESAMISOSTENUTI_ALUNNI;
+        
+        private global::System.Data.DataRelation relationFK_ESAMISOSTENUTI_ESAMI;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -266,6 +270,8 @@ namespace Segreteria.Data {
                     this.tableESAMI.InitVars();
                 }
             }
+            this.relationFK_ESAMISOSTENUTI_ALUNNI = this.Relations["FK_ESAMISOSTENUTI_ALUNNI"];
+            this.relationFK_ESAMISOSTENUTI_ESAMI = this.Relations["FK_ESAMISOSTENUTI_ESAMI"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -284,6 +290,14 @@ namespace Segreteria.Data {
             base.Tables.Add(this.tableCORSILAUREA);
             this.tableESAMI = new ESAMIDataTable();
             base.Tables.Add(this.tableESAMI);
+            this.relationFK_ESAMISOSTENUTI_ALUNNI = new global::System.Data.DataRelation("FK_ESAMISOSTENUTI_ALUNNI", new global::System.Data.DataColumn[] {
+                        this.tableALUNNI.MatricolaColumn}, new global::System.Data.DataColumn[] {
+                        this.tableESAMISOSTENUTI.MatricolaColumn}, false);
+            this.Relations.Add(this.relationFK_ESAMISOSTENUTI_ALUNNI);
+            this.relationFK_ESAMISOSTENUTI_ESAMI = new global::System.Data.DataRelation("FK_ESAMISOSTENUTI_ESAMI", new global::System.Data.DataColumn[] {
+                        this.tableESAMI.IDEsameColumn}, new global::System.Data.DataColumn[] {
+                        this.tableESAMISOSTENUTI.IDEsameColumn}, false);
+            this.Relations.Add(this.relationFK_ESAMISOSTENUTI_ESAMI);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -833,13 +847,19 @@ namespace Segreteria.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ESAMISOSTENUTIRow AddESAMISOSTENUTIRow(long Matricola, int IDEsame, decimal Voto, System.DateTime Data) {
+            public ESAMISOSTENUTIRow AddESAMISOSTENUTIRow(ALUNNIRow parentALUNNIRowByFK_ESAMISOSTENUTI_ALUNNI, ESAMIRow parentESAMIRowByFK_ESAMISOSTENUTI_ESAMI, decimal Voto, System.DateTime Data) {
                 ESAMISOSTENUTIRow rowESAMISOSTENUTIRow = ((ESAMISOSTENUTIRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Matricola,
-                        IDEsame,
+                        null,
+                        null,
                         Voto,
                         Data};
+                if ((parentALUNNIRowByFK_ESAMISOSTENUTI_ALUNNI != null)) {
+                    columnValuesArray[0] = parentALUNNIRowByFK_ESAMISOSTENUTI_ALUNNI[1];
+                }
+                if ((parentESAMIRowByFK_ESAMISOSTENUTI_ESAMI != null)) {
+                    columnValuesArray[1] = parentESAMIRowByFK_ESAMISOSTENUTI_ESAMI[0];
+                }
                 rowESAMISOSTENUTIRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowESAMISOSTENUTIRow);
                 return rowESAMISOSTENUTIRow;
@@ -1652,6 +1672,17 @@ namespace Segreteria.Data {
                     this[this.tableALUNNI.AnnoNascitaColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ESAMISOSTENUTIRow[] GetESAMISOSTENUTIRows() {
+                if ((this.Table.ChildRelations["FK_ESAMISOSTENUTI_ALUNNI"] == null)) {
+                    return new ESAMISOSTENUTIRow[0];
+                }
+                else {
+                    return ((ESAMISOSTENUTIRow[])(base.GetChildRows(this.Table.ChildRelations["FK_ESAMISOSTENUTI_ALUNNI"])));
+                }
+            }
         }
         
         /// <summary>
@@ -1709,6 +1740,28 @@ namespace Segreteria.Data {
                 }
                 set {
                     this[this.tableESAMISOSTENUTI.DataColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ALUNNIRow ALUNNIRow {
+                get {
+                    return ((ALUNNIRow)(this.GetParentRow(this.Table.ParentRelations["FK_ESAMISOSTENUTI_ALUNNI"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_ESAMISOSTENUTI_ALUNNI"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ESAMIRow ESAMIRow {
+                get {
+                    return ((ESAMIRow)(this.GetParentRow(this.Table.ParentRelations["FK_ESAMISOSTENUTI_ESAMI"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_ESAMISOSTENUTI_ESAMI"]);
                 }
             }
         }
@@ -1794,6 +1847,17 @@ namespace Segreteria.Data {
                 }
                 set {
                     this[this.tableESAMI.NomeEsameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ESAMISOSTENUTIRow[] GetESAMISOSTENUTIRows() {
+                if ((this.Table.ChildRelations["FK_ESAMISOSTENUTI_ESAMI"] == null)) {
+                    return new ESAMISOSTENUTIRow[0];
+                }
+                else {
+                    return ((ESAMISOSTENUTIRow[])(base.GetChildRows(this.Table.ChildRelations["FK_ESAMISOSTENUTI_ESAMI"])));
                 }
             }
         }
@@ -2458,11 +2522,18 @@ SELECT IDAlunno, Matricola, Nome, Cognome, DataNascita, AnnoNascita FROM ALUNNI 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Matricola, IDEsame, Voto, Data FROM dbo.ESAMISOSTENUTI";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT ESAMISOSTENUTI.Matricola, ESAMISOSTENUTI.IDEsame, ESAMISOSTENUTI.Voto, ESAMISOSTENUTI.Data, ALUNNI.Nome, ALUNNI.Cognome, ESAMI.NomeEsame
+FROM  ESAMISOSTENUTI INNER JOIN
+         ALUNNI ON ESAMISOSTENUTI.Matricola = ALUNNI.Matricola INNER JOIN
+         ESAMI ON ESAMISOSTENUTI.IDEsame = ESAMI.IDEsame";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2484,6 +2555,30 @@ SELECT IDAlunno, Matricola, Nome, Cognome, DataNascita, AnnoNascita FROM ALUNNI 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual dsSegreteria.ESAMISOSTENUTIDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            dsSegreteria.ESAMISOSTENUTIDataTable dataTable = new dsSegreteria.ESAMISOSTENUTIDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByEsamiSostenuti(dsSegreteria.ESAMISOSTENUTIDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dsSegreteria.ESAMISOSTENUTIDataTable GetDataByEsamiSostenuti() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             dsSegreteria.ESAMISOSTENUTIDataTable dataTable = new dsSegreteria.ESAMISOSTENUTIDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -3385,6 +3480,15 @@ SELECT IDCorso, NomeCorso, AnnoAccademico FROM CORSILAUREA WHERE (IDCorso = @IDC
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._eSAMITableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ESAMI.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._eSAMITableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._eSAMISOSTENUTITableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.ESAMISOSTENUTI.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -3400,15 +3504,6 @@ SELECT IDCorso, NomeCorso, AnnoAccademico FROM CORSILAUREA WHERE (IDCorso = @IDC
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._cORSILAUREATableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._eSAMITableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ESAMI.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._eSAMITableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -3430,6 +3525,14 @@ SELECT IDCorso, NomeCorso, AnnoAccademico FROM CORSILAUREA WHERE (IDCorso = @IDC
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._eSAMITableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ESAMI.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._eSAMITableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._eSAMISOSTENUTITableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.ESAMISOSTENUTI.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -3446,14 +3549,6 @@ SELECT IDCorso, NomeCorso, AnnoAccademico FROM CORSILAUREA WHERE (IDCorso = @IDC
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._eSAMITableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ESAMI.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._eSAMITableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -3464,14 +3559,6 @@ SELECT IDCorso, NomeCorso, AnnoAccademico FROM CORSILAUREA WHERE (IDCorso = @IDC
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(dsSegreteria dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._eSAMITableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ESAMI.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._eSAMITableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._cORSILAUREATableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.CORSILAUREA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -3485,6 +3572,14 @@ SELECT IDCorso, NomeCorso, AnnoAccademico FROM CORSILAUREA WHERE (IDCorso = @IDC
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._eSAMISOSTENUTITableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._eSAMITableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ESAMI.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._eSAMITableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
