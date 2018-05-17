@@ -14,7 +14,7 @@ namespace UI
 {
     public partial class frmEsamiSostenuti : Form
     {
-        dsSegreteria.ESAMIDataTable dtEsamiSostenuti = null;
+        DataTable dtEsamiSostenuti = null;
         ESAMISOSTENUTITableAdapter dtaEsamiSostenuti = new ESAMISOSTENUTITableAdapter();
 
         public frmEsamiSostenuti()
@@ -44,6 +44,27 @@ namespace UI
             frm_NuovoEsameSostenuto.ShowDialog(this);
 
             Bind();
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            long Matricola = 0;
+
+            if (string.IsNullOrEmpty(txtFilter.Text))
+            {
+                dataGridView1.DataSource = dtaEsamiSostenuti.GetDataByEsamiSostenuti();
+            }
+            else
+            {
+                if (long.TryParse(txtFilter.Text, out Matricola))
+                {
+                    dataGridView1.DataSource = dtaEsamiSostenuti.GetDataEsamisostenutiByMatricola(Matricola);
+                }
+            }
+
+
+            dsSegreteriaTablesAdapters.ESAMISOSTENUTITableAdapter nn = new dsSegreteriaTablesAdapters.ESAMISOSTENUTITableAdapter();
+            nn.GetDataByFilter("");
         }
     }
 }

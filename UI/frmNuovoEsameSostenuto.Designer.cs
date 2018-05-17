@@ -153,6 +153,7 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmNuovoEsameSostenuto";
             this.Text = "frmNuovoEsameSostenuto";
             this.Load += new System.EventHandler(this.frmNuovoEsameSostenuto_Load);

@@ -32,9 +32,9 @@
             this.cmdNew = new System.Windows.Forms.Button();
             this.cmdCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnFilter = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.txtFilter = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -70,9 +70,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btnFilter);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtFilter);
             this.groupBox1.Location = new System.Drawing.Point(22, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1789, 100);
@@ -80,12 +80,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtro";
             // 
-            // textBox1
+            // btnFilter
             // 
-            this.textBox1.Location = new System.Drawing.Point(483, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(630, 38);
-            this.textBox1.TabIndex = 0;
+            this.btnFilter.Location = new System.Drawing.Point(1160, 32);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(240, 51);
+            this.btnFilter.TabIndex = 2;
+            this.btnFilter.Text = "Applica Filtro";
+            this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
             // label1
             // 
@@ -96,14 +99,12 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Filtra per";
             // 
-            // button2
+            // txtFilter
             // 
-            this.button2.Location = new System.Drawing.Point(1160, 32);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(240, 51);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Applica Filtro";
-            this.button2.UseVisualStyleBackColor = true;
+            this.txtFilter.Location = new System.Drawing.Point(483, 40);
+            this.txtFilter.Name = "txtFilter";
+            this.txtFilter.Size = new System.Drawing.Size(630, 38);
+            this.txtFilter.TabIndex = 0;
             // 
             // frmEsamiSostenuti
             // 
@@ -130,8 +131,8 @@
         private System.Windows.Forms.Button cmdNew;
         private System.Windows.Forms.Button cmdCancel;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtFilter;
     }
 }

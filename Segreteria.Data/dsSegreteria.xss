@@ -7,7 +7,7 @@
 <DiagramLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ex:showrelationlabel="False" ViewPortX="0" ViewPortY="-47" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:ALUNNI" ZOrder="2" X="518" Y="138" Height="407" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="308" />
-    <Shape ID="DesignTable:ESAMISOSTENUTI" ZOrder="6" X="1159" Y="113" Height="364" Width="690" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="222" />
+    <Shape ID="DesignTable:ESAMISOSTENUTI" ZOrder="6" X="1159" Y="113" Height="407" Width="641" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="222" />
     <Shape ID="DesignTable:CORSILAUREA" ZOrder="1" X="1690" Y="565" Height="278" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="179" />
     <Shape ID="DesignTable:ESAMI" ZOrder="5" X="2408" Y="99" Height="235" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="136" />
   </Shapes>
@@ -31,7 +31,7 @@
           <Y>153</Y>
         </Point>
         <Point>
-          <X>1849</X>
+          <X>1800</X>
           <Y>153</Y>
         </Point>
       </RoutePoints>
