@@ -62,9 +62,7 @@ namespace UI
                 }
             }
 
-
-            dsSegreteriaTablesAdapters.ESAMISOSTENUTITableAdapter nn = new dsSegreteriaTablesAdapters.ESAMISOSTENUTITableAdapter();
-            nn.GetDataByFilter("");
+            dtaEsamiSostenuti.GetDataByFilter("");
         }
     }
 }

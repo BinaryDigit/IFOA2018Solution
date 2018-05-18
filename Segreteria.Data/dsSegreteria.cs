@@ -1,22 +1,15 @@
 ﻿using System.Data;
 
-namespace Segreteria.Data
-{
-}
-
-namespace Segreteria.Data
+namespace Segreteria.Data.dsSegreteriaTableAdapters
 {
 
-    public partial class dsSegreteriaTablesAdapters
-    { 
-        public partial class ESAMISOSTENUTITableAdapter
+    public partial class ESAMISOSTENUTITableAdapter
+    {
+        public DataTable GetDataByFilter( string query)
         {
-            public DataTable GetDataByFilter( string query)
-            {
-                DataTable dt = new DataTable();
+            DataTable dt = new DataTable();
 
-                return dt;
-            }
+            return dt;
         }
     }
 }
