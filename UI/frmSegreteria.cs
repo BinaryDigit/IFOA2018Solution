@@ -25,9 +25,7 @@ namespace UI
         private void alunniToolStripMenuItem_Click(object sender, EventArgs e)
         {            
             frmAlunni Alunni = new frmAlunni() { MdiParent = this };
-            // Alunni.MdiParent = this;
             Alunni.Show();
-
         }
 
         private void frmSegreteria_Load(object sender, EventArgs e)
